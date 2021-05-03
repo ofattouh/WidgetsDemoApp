@@ -8,7 +8,8 @@
 
 import React from 'react';
 import {Platform} from 'react-native';
-import {Ionicons} from '@expo/vector-icons';
+import {Ionicons} from 'react-native-vector-icons/FontAwesome';
+// import Icon from 'react-native-vector-icons/FontAwesome';
 import {createAppContainer} from 'react-navigation';
 import {createStackNavigator} from 'react-navigation-stack';
 import {createBottomTabNavigator} from 'react-navigation-tabs';
@@ -43,7 +44,8 @@ const AppNavigator = createBottomTabNavigator(
     // initial route rendered when app first mounts
     initialRouteName: 'Home',
     defaultNavigationOptions: ({navigation}) => ({
-      tabBarIcon: ({tintColor}) => {
+      /*
+      tabBarIcon: ({color, size}) => {
         const {routeName} = navigation.state;
         let iconName;
 
@@ -53,12 +55,13 @@ const AppNavigator = createBottomTabNavigator(
           iconName = `${Platform.OS === 'ios' ? 'ios' : 'md'}-settings`;
         }
 
-        return <Ionicons name={iconName} size={20} color={tintColor} />;
+        return <Ionicons name={iconName} size={20} color="#4F8EF7" />;
       },
       tabBarOptions: {
         activeTintColor: 'blue',
         inactiveTintColor: '#556',
       },
+      */
     }),
   },
 );
@@ -68,6 +71,8 @@ export default createAppContainer(AppNavigator);
 // npx react-native init MuslimPrayerCompanion
 // npm install react-navigation react-navigation-stack react-navigation-tabs
 // npm install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
+// npm install --save react-native-vector-icons
+// npm install styled-components
 // cd ios // pod install
 // https://reactnative.dev/docs/flatlist
 // https://reactnative.dev/docs/sectionlist (sectioned)

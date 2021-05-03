@@ -1,43 +1,37 @@
 import React from 'react';
-import styled from 'styled-components/native';
-import {Image, Text, View, TouchableOpacity} from 'react-native';
-
-const ListingItemWrapper = styled(TouchableOpacity)`
-  display: flex;
-  flex-direction: row;
-  padding: 2%;
-  background-color: #eee;
-  border-radius: 5px;
-  margin-bottom: 5%;
-`;
-
-export const Title = styled(Text)`
-  flex-wrap: wrap;
-  width: 99%;
-  font-size: 20px;
-`;
-
-export const Price = styled(Text)`
-  font-weight: bold;
-  font-size: 20px;
-  color: blue;
-`;
-
-const Thumbnail = styled(Image)`
-  border-radius: 5px;
-  margin-right: 4%;
-  height: 200px;
-  width: 200px;
-`;
+import {Image, Text, View, StyleSheet, TouchableOpacity} from 'react-native';
 
 const ListingItem = ({item, navigation}) => (
-  <ListingItemWrapper onPress={() => navigation.navigate('Detail', {item})}>
-    <Thumbnail source={{uri: item.thumbnail}} />
+  <TouchableOpacity
+    style={styles.ListingItemWrapper}
+    onPress={() => navigation.navigate('Detail', {item})}>
+    <Image style={styles.Thumbnail} source={{uri: item.thumbnail}} />
+
     <View>
-      <Title>{item.title}</Title>
-      <Price>{item.price}</Price>
+      <Text style={styles.title}>{item.title}</Text>
+      <Text style={styles.price}>{item.price}</Text>
     </View>
-  </ListingItemWrapper>
+  </TouchableOpacity>
 );
+
+const styles = StyleSheet.create({
+  ListingItemWrapper: {
+    padding: 2,
+    backgroundColor: '#eee',
+  },
+  title: {
+    fontSize: 20,
+  },
+  price: {
+    fontSize: 20,
+    fontWeight: 'bold',
+    color: 'blue',
+  },
+  Thumbnail: {
+    marginRight: 4,
+    height: 200,
+    width: 200,
+  },
+});
 
 export default ListingItem;
