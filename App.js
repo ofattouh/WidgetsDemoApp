@@ -6,74 +6,36 @@
  * @flow strict-local
  */
 
-import React from 'react';
-import {Platform} from 'react-native';
-import {Ionicons} from 'react-native-vector-icons/FontAwesome';
-// import Icon from 'react-native-vector-icons/FontAwesome';
-import {createAppContainer} from 'react-navigation';
-import {createStackNavigator} from 'react-navigation-stack';
-import {createBottomTabNavigator} from 'react-navigation-tabs';
-import Home from './Screens/Home';
-import Detail from './Screens/Detail';
-import Settings from './Screens/Settings';
+import 'react-native-gesture-handler';
+import * as React from 'react';
+import {View, Text} from 'react-native';
+import {NavigationContainer} from '@react-navigation/native';
+import {createStackNavigator} from '@react-navigation/stack';
 
-const HomeStack = createStackNavigator({
-  Home: {
-    screen: Home,
-    navigationOptions: {title: 'Home'},
-  },
-  Detail: {
-    screen: Detail,
-    navigationOptions: {title: 'Detail'},
-  },
-});
+function HomeScreen() {
+  return (
+    <View style={{flex: 1, alignItems: 'center', justifyContent: 'center'}}>
+      <Text>Home Screen</Text>
+    </View>
+  );
+}
 
-const SettingsStack = createStackNavigator({
-  Settings: {
-    screen: Settings,
-    navigationOptions: {title: 'Settings'},
-  },
-});
+const Stack = createStackNavigator();
 
-const AppNavigator = createBottomTabNavigator(
-  {
-    Home: HomeStack,
-    Settings: SettingsStack,
-  },
-  {
-    // initial route rendered when app first mounts
-    initialRouteName: 'Home',
-    defaultNavigationOptions: ({navigation}) => ({
-      /*
-      tabBarIcon: ({color, size}) => {
-        const {routeName} = navigation.state;
-        let iconName;
+function App() {
+  return (
+    <NavigationContainer>
+      <Stack.Navigator>
+        <Stack.Screen name="Home" component={HomeScreen} />
+      </Stack.Navigator>
+    </NavigationContainer>
+  );
+}
 
-        if (routeName === 'Home') {
-          iconName = `${Platform.OS === 'ios' ? 'ios' : 'md'}-home`;
-        } else if (routeName === 'Settings') {
-          iconName = `${Platform.OS === 'ios' ? 'ios' : 'md'}-settings`;
-        }
+export default App;
 
-        return <Ionicons name={iconName} size={20} color="#4F8EF7" />;
-      },
-      tabBarOptions: {
-        activeTintColor: 'blue',
-        inactiveTintColor: '#556',
-      },
-      */
-    }),
-  },
-);
-
-export default createAppContainer(AppNavigator);
-
-// npx react-native init MuslimPrayerCompanion
-// npm install react-navigation react-navigation-stack react-navigation-tabs
-// npm install react-native-gesture-handler react-native-reanimated react-native-screens react-native-safe-area-context @react-native-community/masked-view
-// npm install --save react-native-vector-icons
-// npm install styled-components
-// cd ios // pod install
+// npx react-native init MyApp
+// cd ios // pod install OR npx pod-install ios
 // https://reactnative.dev/docs/flatlist
 // https://reactnative.dev/docs/sectionlist (sectioned)
 // https://reactnative.dev/docs/virtualizedlist (mutable data instead of plain arrays)
