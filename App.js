@@ -138,7 +138,8 @@ function App() {
         <Stack.Screen
           name="My Details"
           component={DetailsScreen}
-          options={({route}) => ({title: route.params.name})}
+          options={{headerShown: false}}
+          // options={({route}) => ({title: route.params.name})}
           initialParams={{itemId2: 42}}
         />
 
