@@ -1,51 +1,50 @@
-import React from 'react';
-import {FlatList, StyleSheet, View} from 'react-native';
-import ListingItem from '../Components/Listing/ListingItem';
+import * as React from 'react';
+import {StyleSheet, View, Text, Button, Image} from 'react-native';
 
-// Home route component
-const Home = ({navigation}) => {
-  const [data, setData] = React.useState([]);
-
-  const fetchAPI = async () => {
-    try {
-      const res = await fetch(
-        'https://my-json-server.typicode.com/PacktPublishing/React-Projects/listings',
-      );
-      const dataJSON = await res.json();
-
-      if (dataJSON) {
-        setData(dataJSON);
-      }
-    } catch (error) {
-      console.log(error);
-    }
-  };
-
-  React.useEffect(() => {
-    fetchAPI();
-  }, []);
-
-  // specify String key prop (unique) for each iterated component using keyExtractor
+function Home({navigation}) {
   return (
-    <View style={styles.ListingsWrapper}>
-      <FlatList
-        style={styles.Listings}
-        data={data}
-        keyExtractor={item => String(item.id)}
-        renderItem={item => <ListingItem item={item} navigation={navigation} />}
+    <View style={styles.container}>
+      <Text style={styles.paragraph}>Home Screen</Text>
+      <Text>{"\n"}</Text>
+
+      <Button
+        title="Go to Settings"
+        onPress={() => {
+          navigation.navigate('Settings', {
+            itemId: 86,
+            otherParam: 'anything you want here',
+          });
+        }}
+      />
+
+      <Text>{"\n"}</Text>
+
+      <Button title="Go to FlatList" onPress={() => navigation.navigate('MyFlatList')} />
+
+      <Text>{"\n"}</Text>
+
+      <Button title="Go to Modal" onPress={() => navigation.navigate('MyModal')} />
+
+      <Text>{"\n"}</Text>
+
+      <Image
+        style={{width: 300, height: 300}}
+        source={{uri: 'https://picsum.photos/300/300.jpg?random=' + Math.random()}}
       />
     </View>
   );
-};
+}
 
 const styles = StyleSheet.create({
-  ListingsWrapper: {
+  container: {
     flex: 1,
+    alignItems: 'center',
+    justifyContent: 'center',
     backgroundColor: '#fff',
   },
-  Listings: {
-    width: 100,
-    padding: '2%',
+  paragraph: {
+    padding: 15,
+    fontSize: 17,
   },
 });
 

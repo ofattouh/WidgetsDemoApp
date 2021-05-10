@@ -13,15 +13,27 @@ import {
 const data = [
   {
     id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28ba',
-    title: 'First Item',
+    title: 'Item #1',
   },
   {
     id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f63',
-    title: 'Second Item',
+    title: 'Item #2',
   },
   {
     id: '58694a0f-3da1-471f-bd96-145571e29d72',
-    title: 'Third Item',
+    title: 'Item #3',
+  },
+  {
+    id: 'bd7acbea-c1b1-46c2-aed5-3ad53abb28b1',
+    title: 'Item #4',
+  },
+  {
+    id: '3ac68afc-c605-48d3-a4f8-fbd91aa97f62',
+    title: 'Item #5',
+  },
+  {
+    id: '58694a0f-3da1-471f-bd96-145571e29d73',
+    title: 'Item #6',
   },
 ];
 
@@ -31,7 +43,7 @@ const Item = ({item, onPress, backgroundColor, textColor}) => (
   </TouchableOpacity>
 );
 
-const App = () => {
+const MyFlatList = () => {
   const [selectedId, setSelectedId] = useState(null);
 
   const renderHeader = () => {
@@ -124,7 +136,7 @@ const styles = StyleSheet.create({
   },
 });
 
-export default App;
+export default MyFlatList;
 
 // npx react-native init MuslimPrayerCompanion
 // npm install react-navigation react-navigation-stack react-navigation-tabs
