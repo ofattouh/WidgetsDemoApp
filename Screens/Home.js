@@ -5,7 +5,7 @@ function Home({navigation}) {
   return (
     <View style={styles.container}>
       <Text style={styles.paragraph}>Home Screen</Text>
-      <Text>{"\n"}</Text>
+      <Text>{'\n'}</Text>
 
       <Button
         title="Go to Settings"
@@ -17,19 +17,26 @@ function Home({navigation}) {
         }}
       />
 
-      <Text>{"\n"}</Text>
+      <Text>{'\n'}</Text>
+      <Button
+        title="Go to FlatList"
+        onPress={() => navigation.navigate('MyFlatList')}
+      />
 
-      <Button title="Go to FlatList" onPress={() => navigation.navigate('MyFlatList')} />
+      <Text>{'\n'}</Text>
 
-      <Text>{"\n"}</Text>
+      <Button
+        title="Go to Modal"
+        onPress={() => navigation.navigate('MyModal')}
+      />
 
-      <Button title="Go to Modal" onPress={() => navigation.navigate('MyModal')} />
-
-      <Text>{"\n"}</Text>
+      <Text>{'\n'}</Text>
 
       <Image
-        style={{width: 300, height: 300}}
-        source={{uri: 'https://picsum.photos/300/300.jpg?random=' + Math.random()}}
+        style={styles.image}
+        source={{
+          uri: 'https://picsum.photos/300/300.jpg?random=' + Math.random(),
+        }}
       />
     </View>
   );
@@ -45,6 +52,10 @@ const styles = StyleSheet.create({
   paragraph: {
     padding: 15,
     fontSize: 17,
+  },
+  image: {
+    width: 300,
+    height: 300,
   },
 });
 
