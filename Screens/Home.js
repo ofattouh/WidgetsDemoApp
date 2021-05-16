@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, View, Text, Button, Image} from 'react-native';
+import {StyleSheet, Button, Text, View, Image} from 'react-native';
 
 function Home({navigation}) {
   return (
@@ -28,6 +28,13 @@ function Home({navigation}) {
       <Button
         title="Go to Modal"
         onPress={() => navigation.navigate('MyModal')}
+      />
+
+      <Text>{'\n'}</Text>
+
+      <Button
+        title="Go to Tabs"
+        onPress={() => navigation.navigate('MyTabs')}
       />
 
       <Text>{'\n'}</Text>

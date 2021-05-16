@@ -19,6 +19,7 @@ import Profile from './Screens/Profile';
 
 import MyFlatList from './Components/Widgets/MyFlatList';
 import MyModal from './Components/Widgets/MyModal';
+import MyTabs from './Components/Widgets/MyTabs';
 
 const Stack = createStackNavigator();
 
@@ -79,6 +80,14 @@ function App() {
         <Stack.Screen
           name="MyModal"
           component={MyModal}
+          options={({}) => ({
+            headerTitle: props => <Header {...props} />,
+          })}
+        />
+
+        <Stack.Screen
+          name="MyTabs"
+          component={MyTabs}
           options={({}) => ({
             headerTitle: props => <Header {...props} />,
           })}

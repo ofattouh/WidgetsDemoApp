@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, View, Text, Button, Image} from 'react-native';
+import {StyleSheet, View, Text, Image} from 'react-native';
 
 function Header() {
   return (
@@ -7,7 +7,7 @@ function Header() {
       <Text style={styles.paragraph}>Header</Text>
 
       <Image
-        style={{width: 30, height: 30}}
+        style={styles.image}
         source={{uri: 'https://picsum.photos/30/30.jpg'}}
       />
     </View>
@@ -23,6 +23,10 @@ const styles = StyleSheet.create({
   paragraph: {
     padding: 15,
     fontSize: 17,
+  },
+  image: {
+    width: 30,
+    height: 30,
   },
 });
 

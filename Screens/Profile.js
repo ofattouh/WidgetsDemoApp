@@ -1,5 +1,5 @@
 import React from 'react';
-import {StyleSheet, View, Text, Button, Image} from 'react-native';
+import {Text, Button} from 'react-native';
 
 function Profile({navigation}) {
   const [count, setCount] = React.useState(0);
@@ -14,14 +14,5 @@ function Profile({navigation}) {
 
   return <Text>Count: {count}</Text>;
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    alignItems: 'center',
-    justifyContent: 'center',
-    backgroundColor: '#fff',
-  },
-});
 
 export default Profile;
