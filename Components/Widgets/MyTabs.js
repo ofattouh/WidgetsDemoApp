@@ -4,10 +4,34 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
+function PrayersScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>Prayers Screen</Text>
+    </View>
+  );
+}
+
+function FeedScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>Feed Screen</Text>
+    </View>
+  );
+}
+
+function CommunityScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>Community Screen</Text>
+    </View>
+  );
+}
+
 function DetailsScreen() {
   return (
     <View style={styles.container}>
-      <Text>Details</Text>
+      <Text>Details Screen</Text>
     </View>
   );
 }
@@ -81,26 +105,33 @@ function MyTabs({}) {
           let iconName;
 
           if (route.name === 'Home') {
-            iconName = focused
-              ? 'ios-information-circle'
-              : 'ios-information-circle-outline';
+            iconName = focused ? 'home' : 'home-outline';
+          } else if (route.name === 'Feed') {
+            iconName = focused ? 'calendar' : 'calendar-outline';
+          } else if (route.name === 'Prayers') {
+            iconName = focused ? 'time' : 'time-outline';
+          } else if (route.name === 'Community') {
+            iconName = focused ? 'earth' : 'earth-outline';
           } else if (route.name === 'Settings') {
-            iconName = focused ? 'md-settings' : 'md-settings-outline';
+            iconName = focused ? 'settings' : 'settings-outline';
           }
 
-          // You can return any component that you like here!
+          // Any other component: https://ionic.io/ionicons
           return <Ionicons name={iconName} size={size} color={color} />;
         },
       })}
       tabBarOptions={{
-        activeTintColor: 'tomato',
+        activeTintColor: '#6699CC',
         inactiveTintColor: 'gray',
       }}>
+      <Tab.Screen name="Home" component={HomeStackScreen} />
       <Tab.Screen
-        name="Home"
-        component={HomeStackScreen}
+        name="Feed"
+        component={FeedScreen}
         options={{tabBarBadge: 3}}
       />
+      <Tab.Screen name="Prayers" component={PrayersScreen} />
+      <Tab.Screen name="Community" component={CommunityScreen} />
       <Tab.Screen name="Settings" component={SettingsStackScreen} />
     </Tab.Navigator>
   );
