@@ -4,18 +4,18 @@ import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-function PrayersScreen() {
-  return (
-    <View style={styles.container}>
-      <Text>Prayers Screen</Text>
-    </View>
-  );
-}
-
 function FeedScreen() {
   return (
     <View style={styles.container}>
       <Text>Feed Screen</Text>
+    </View>
+  );
+}
+
+function PrayersScreen() {
+  return (
+    <View style={styles.container}>
+      <Text>Prayers Screen</Text>
     </View>
   );
 }
