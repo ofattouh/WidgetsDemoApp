@@ -16,27 +16,24 @@ function Home({navigation}) {
           });
         }}
       />
-
       <Text>{'\n'}</Text>
+
       <Button
         title="Go to FlatList"
         onPress={() => navigation.navigate('MyFlatList')}
       />
-
       <Text>{'\n'}</Text>
 
       <Button
         title="Go to Modal"
         onPress={() => navigation.navigate('MyModal')}
       />
-
       <Text>{'\n'}</Text>
 
       <Button
         title="Go to Tabs"
         onPress={() => navigation.navigate('MyTabs')}
       />
-
       <Text>{'\n'}</Text>
 
       <Image
