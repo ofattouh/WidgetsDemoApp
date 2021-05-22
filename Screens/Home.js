@@ -36,10 +36,16 @@ function Home({navigation}) {
       />
       <Text>{'\n'}</Text>
 
+      <Button
+        title="Go to Drawer"
+        onPress={() => navigation.navigate('MyDrawer')}
+      />
+      <Text>{'\n'}</Text>
+
       <Image
         style={styles.image}
         source={{
-          uri: 'https://picsum.photos/300/300.jpg?random=' + Math.random(),
+          uri: 'https://picsum.photos/500/500.jpg?random=' + Math.random(),
         }}
       />
     </View>
@@ -58,8 +64,8 @@ const styles = StyleSheet.create({
     fontSize: 17,
   },
   image: {
-    width: 300,
-    height: 300,
+    width: 350,
+    height: 250,
   },
 });
 

@@ -20,6 +20,7 @@ import Profile from './Screens/Profile';
 import MyFlatList from './Components/Widgets/MyFlatList';
 import MyModal from './Components/Widgets/MyModal';
 import MyTabs from './Components/Widgets/MyTabs';
+import MyDrawer from './Components/Widgets/MyDrawer';
 
 const Stack = createStackNavigator();
 
@@ -88,6 +89,14 @@ function App() {
         <Stack.Screen
           name="MyTabs"
           component={MyTabs}
+          options={({}) => ({
+            headerTitle: props => <Header {...props} />,
+          })}
+        />
+
+        <Stack.Screen
+          name="MyDrawer"
+          component={MyDrawer}
           options={({}) => ({
             headerTitle: props => <Header {...props} />,
           })}
