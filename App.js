@@ -9,6 +9,7 @@
 import 'react-native-gesture-handler';
 import * as React from 'react';
 import {Button} from 'react-native';
+import {SafeAreaProvider} from 'react-native-safe-area-context';
 import {NavigationContainer} from '@react-navigation/native';
 import {createStackNavigator} from '@react-navigation/stack';
 
@@ -26,83 +27,85 @@ const Stack = createStackNavigator();
 
 function App() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator
-        initialRouteName="Home"
-        screenOptions={{
-          headerStyle: {
-            backgroundColor: '#f4511e',
-          },
-          headerTintColor: '#fff',
-          headerTitleStyle: {
-            fontWeight: 'bold',
-            fontFamily: 'Arial',
-          },
-        }}>
-        <Stack.Screen
-          name="Home"
-          component={Home}
-          options={{
-            headerTitle: props => <Header {...props} />,
-            headerRight: () => (
-              <Button
-                onPress={() => alert('Clicked!')}
-                title="Click me"
-                color="#2A52BE"
-              />
-            ),
-          }}
-        />
+    <SafeAreaProvider>
+      <NavigationContainer>
+        <Stack.Navigator
+          initialRouteName="Home"
+          screenOptions={{
+            headerStyle: {
+              backgroundColor: '#f4511e',
+            },
+            headerTintColor: '#fff',
+            headerTitleStyle: {
+              fontWeight: 'bold',
+              fontFamily: 'Arial',
+            },
+          }}>
+          <Stack.Screen
+            name="Home"
+            component={Home}
+            options={{
+              headerTitle: props => <Header {...props} />,
+              headerRight: () => (
+                <Button
+                  onPress={() => alert('Clicked!')}
+                  title="Click me"
+                  color="#2A52BE"
+                />
+              ),
+            }}
+          />
 
-        <Stack.Screen
-          name="Settings"
-          component={Settings}
-          // options={{headerShown: false}}
-          options={({route}) => ({title: route.params.name})}
-          initialParams={{itemId2: 42}}
-        />
+          <Stack.Screen
+            name="Settings"
+            component={Settings}
+            // options={{headerShown: false}}
+            options={({route}) => ({title: route.params.name})}
+            initialParams={{itemId2: 42}}
+          />
 
-        <Stack.Screen
-          name="Profile"
-          component={Profile}
-          options={({}) => ({
-            headerTitle: props => <Header {...props} />,
-          })}
-        />
+          <Stack.Screen
+            name="Profile"
+            component={Profile}
+            options={({}) => ({
+              headerTitle: props => <Header {...props} />,
+            })}
+          />
 
-        <Stack.Screen
-          name="MyFlatList"
-          component={MyFlatList}
-          options={({}) => ({
-            headerTitle: props => <Header {...props} />,
-          })}
-        />
+          <Stack.Screen
+            name="MyFlatList"
+            component={MyFlatList}
+            options={({}) => ({
+              headerTitle: props => <Header {...props} />,
+            })}
+          />
 
-        <Stack.Screen
-          name="MyModal"
-          component={MyModal}
-          options={({}) => ({
-            headerTitle: props => <Header {...props} />,
-          })}
-        />
+          <Stack.Screen
+            name="MyModal"
+            component={MyModal}
+            options={({}) => ({
+              headerTitle: props => <Header {...props} />,
+            })}
+          />
 
-        <Stack.Screen
-          name="MyTabs"
-          component={MyTabs}
-          options={({}) => ({
-            headerTitle: props => <Header {...props} />,
-          })}
-        />
+          <Stack.Screen
+            name="MyTabs"
+            component={MyTabs}
+            options={({}) => ({
+              headerTitle: props => <Header {...props} />,
+            })}
+          />
 
-        <Stack.Screen
-          name="MyDrawer"
-          component={MyDrawer}
-          options={({}) => ({
-            headerTitle: props => <Header {...props} />,
-          })}
-        />
-      </Stack.Navigator>
-    </NavigationContainer>
+          <Stack.Screen
+            name="MyDrawer"
+            component={MyDrawer}
+            options={({}) => ({
+              headerTitle: props => <Header {...props} />,
+            })}
+          />
+        </Stack.Navigator>
+      </NavigationContainer>
+    </SafeAreaProvider>
   );
 }
 

@@ -88,7 +88,7 @@ const SettingsStack = createStackNavigator();
 
 function SettingsStackScreen() {
   return (
-    <SettingsStack.Navigator>
+    <SettingsStack.Navigator initialRouteName="Settings" headerMode="none">
       <SettingsStack.Screen name="Settings" component={SettingsScreen} />
       <SettingsStack.Screen name="Details" component={DetailsScreen} />
     </SettingsStack.Navigator>
@@ -100,6 +100,8 @@ const Tab = createBottomTabNavigator();
 function MyTabs({}) {
   return (
     <Tab.Navigator
+      initialRouteName="Home"
+      // tabBar={() => null}
       screenOptions={({route}) => ({
         tabBarIcon: ({focused, color, size}) => {
           let iconName;

@@ -1,9 +1,10 @@
 import * as React from 'react';
-import {StyleSheet, Button, Text, View, Image} from 'react-native';
+import {StyleSheet, Button, Text, Image} from 'react-native';
+import {SafeAreaView} from 'react-native-safe-area-context';
 
 function Home({navigation}) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
       <Text style={styles.paragraph}>Home Screen</Text>
       <Text>{'\n'}</Text>
 
@@ -48,7 +49,7 @@ function Home({navigation}) {
           uri: 'https://picsum.photos/500/500.jpg?random=' + Math.random(),
         }}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
