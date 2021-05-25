@@ -1,44 +1,57 @@
 import * as React from 'react';
-import {StyleSheet, Button, Text, View} from 'react-native';
+import {StyleSheet, SafeAreaView, Button, Text} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import {StatusBar} from 'react-native';
+import {useIsFocused} from '@react-navigation/native';
+
+// use FocusAwareStatusBar instead of StatusBar from React Native to work for tabs
+function FocusAwareStatusBar(props) {
+  const isFocused = useIsFocused();
+  return isFocused ? <StatusBar {...props} /> : null;
+}
 
 function FeedScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <FocusAwareStatusBar barStyle="light-content" backgroundColor="#6a51ae" />
       <Text>Feed Screen</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
 function PrayersScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <FocusAwareStatusBar barStyle="light-content" backgroundColor="#6a51ae" />
       <Text>Prayers Screen</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
 function CommunityScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <FocusAwareStatusBar barStyle="light-content" backgroundColor="#6a51ae" />
       <Text>Community Screen</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
 function DetailsScreen() {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <FocusAwareStatusBar barStyle="dark-content" backgroundColor="#ecf0f1" />
       <Text>Details Screen</Text>
-    </View>
+    </SafeAreaView>
   );
 }
 
 function HomeScreen({navigation}) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <FocusAwareStatusBar barStyle="dark-content" backgroundColor="#ecf0f1" />
       <Text style={styles.paragraph}>Home Screen</Text>
       <Text>{'\n'}</Text>
 
@@ -52,13 +65,14 @@ function HomeScreen({navigation}) {
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
 function SettingsScreen({navigation}) {
   return (
-    <View style={styles.container}>
+    <SafeAreaView style={styles.container}>
+      <FocusAwareStatusBar barStyle="dark-content" backgroundColor="#ecf0f1" />
       <Text style={styles.paragraph}>Settings Screen</Text>
       <Text>{'\n'}</Text>
 
@@ -69,7 +83,7 @@ function SettingsScreen({navigation}) {
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
       />
-    </View>
+    </SafeAreaView>
   );
 }
 
@@ -138,6 +152,7 @@ function MyTabs({}) {
     </Tab.Navigator>
   );
 }
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,

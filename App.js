@@ -15,13 +15,15 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import Header from './Screens/Header';
 import Home from './Screens/Home';
-import Settings from './Screens/Settings';
 import Profile from './Screens/Profile';
+import Settings from './Screens/Settings';
+import Widgets from './Screens/Widgets';
 
 import MyFlatList from './Components/Widgets/MyFlatList';
 import MyModal from './Components/Widgets/MyModal';
 import MyTabs from './Components/Widgets/MyTabs';
 import MyDrawer from './Components/Widgets/MyDrawer';
+import MyStatusBar from './Components/Widgets/MyStatusBar';
 
 const Stack = createStackNavigator();
 
@@ -57,6 +59,14 @@ function App() {
           />
 
           <Stack.Screen
+            name="Profile"
+            component={Profile}
+            options={({}) => ({
+              headerTitle: props => <Header {...props} />,
+            })}
+          />
+
+          <Stack.Screen
             name="Settings"
             component={Settings}
             // options={{headerShown: false}}
@@ -65,8 +75,8 @@ function App() {
           />
 
           <Stack.Screen
-            name="Profile"
-            component={Profile}
+            name="Widgets"
+            component={Widgets}
             options={({}) => ({
               headerTitle: props => <Header {...props} />,
             })}
@@ -99,6 +109,14 @@ function App() {
           <Stack.Screen
             name="MyDrawer"
             component={MyDrawer}
+            options={({}) => ({
+              headerTitle: props => <Header {...props} />,
+            })}
+          />
+
+          <Stack.Screen
+            name="MyStatusBar"
+            component={MyStatusBar}
             options={({}) => ({
               headerTitle: props => <Header {...props} />,
             })}
