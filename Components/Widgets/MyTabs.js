@@ -140,15 +140,26 @@ function MyTabs({}) {
         activeTintColor: '#6699CC',
         inactiveTintColor: 'gray',
       }}>
-      <Tab.Screen name="Home" component={HomeStackScreen} />
+      <Tab.Screen
+        name="Home"
+        component={HomeStackScreen}
+        options={{tabBarLabel: 'My Home'}}
+      />
+
       <Tab.Screen
         name="Feed"
         component={FeedScreen}
         options={{tabBarBadge: 3}}
       />
+
       <Tab.Screen name="Prayers" component={PrayersScreen} />
       <Tab.Screen name="Community" component={CommunityScreen} />
-      <Tab.Screen name="Settings" component={SettingsStackScreen} />
+
+      <Tab.Screen
+        name="Settings"
+        component={SettingsStackScreen}
+        options={{tabBarLabel: 'My Settings'}}
+      />
     </Tab.Navigator>
   );
 }
