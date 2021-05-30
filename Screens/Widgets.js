@@ -31,8 +31,8 @@ function Widgets({navigation}) {
       <Text>{'\n'}</Text>
 
       <Button
-        title="Disable Back Button"
-        onPress={() => navigation.navigate('DisableBackBtn')}
+        title="Disable Back Button/Focused Screen"
+        onPress={() => navigation.navigate('DisableBackBtnAndFocused')}
       />
       <Text>{'\n'}</Text>
     </View>

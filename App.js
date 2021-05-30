@@ -24,7 +24,7 @@ import MyModal from './Components/Widgets/MyModal';
 import MyTabs from './Components/Widgets/MyTabs';
 import MyDrawer from './Components/Widgets/MyDrawer';
 import MyStatusBar from './Components/Widgets/MyStatusBar';
-import DisableBackBtn from './Components/Widgets/DisableBackBtn';
+import DisableBackBtnAndFocused from './Components/Widgets/DisableBackBtnAndFocused';
 
 const Stack = createStackNavigator();
 
@@ -124,8 +124,8 @@ function App() {
           />
 
           <Stack.Screen
-            name="DisableBackBtn"
-            component={DisableBackBtn}
+            name="DisableBackBtnAndFocused"
+            component={DisableBackBtnAndFocused}
             options={({}) => ({
               headerTitle: props => <Header {...props} />,
             })}
