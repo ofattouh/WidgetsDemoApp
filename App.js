@@ -24,6 +24,7 @@ import MyModal from './Components/Widgets/MyModal';
 import MyTabs from './Components/Widgets/MyTabs';
 import MyDrawer from './Components/Widgets/MyDrawer';
 import MyStatusBar from './Components/Widgets/MyStatusBar';
+import DisableBackBtn from './Components/Widgets/DisableBackBtn';
 
 const Stack = createStackNavigator();
 
@@ -117,6 +118,14 @@ function App() {
           <Stack.Screen
             name="MyStatusBar"
             component={MyStatusBar}
+            options={({}) => ({
+              headerTitle: props => <Header {...props} />,
+            })}
+          />
+
+          <Stack.Screen
+            name="DisableBackBtn"
+            component={DisableBackBtn}
             options={({}) => ({
               headerTitle: props => <Header {...props} />,
             })}

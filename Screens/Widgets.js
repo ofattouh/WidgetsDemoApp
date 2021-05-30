@@ -4,7 +4,7 @@ import {StyleSheet, View, Text, Button} from 'react-native';
 function Widgets({navigation}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.paragraph}>Widgets Screen</Text>
+      <Text style={styles.paragraph}>My Widgets</Text>
 
       <Button
         title="My Status Bar"
@@ -29,6 +29,12 @@ function Widgets({navigation}) {
 
       <Button title="My Tabs" onPress={() => navigation.navigate('MyTabs')} />
       <Text>{'\n'}</Text>
+
+      <Button
+        title="Disable Back Button"
+        onPress={() => navigation.navigate('DisableBackBtn')}
+      />
+      <Text>{'\n'}</Text>
     </View>
   );
 }
@@ -37,12 +43,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     backgroundColor: '#fff',
   },
   paragraph: {
     padding: 15,
-    fontSize: 17,
+    fontSize: 20,
   },
 });
 
