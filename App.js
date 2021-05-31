@@ -19,13 +19,6 @@ import Profile from './Screens/Profile';
 import Settings from './Screens/Settings';
 import Widgets from './Screens/Widgets';
 
-import MyFlatList from './Components/Widgets/MyFlatList';
-import MyModal from './Components/Widgets/MyModal';
-import MyTabs from './Components/Widgets/MyTabs';
-import MyDrawer from './Components/Widgets/MyDrawer';
-import MyStatusBar from './Components/Widgets/MyStatusBar';
-import DisableBackBtnAndFocused from './Components/Widgets/DisableBackBtnAndFocused';
-
 const Stack = createStackNavigator();
 
 function App() {
@@ -78,54 +71,6 @@ function App() {
           <Stack.Screen
             name="Widgets"
             component={Widgets}
-            options={({}) => ({
-              headerTitle: props => <Header {...props} />,
-            })}
-          />
-
-          <Stack.Screen
-            name="MyFlatList"
-            component={MyFlatList}
-            options={({}) => ({
-              headerTitle: props => <Header {...props} />,
-            })}
-          />
-
-          <Stack.Screen
-            name="MyModal"
-            component={MyModal}
-            options={({}) => ({
-              headerTitle: props => <Header {...props} />,
-            })}
-          />
-
-          <Stack.Screen
-            name="MyTabs"
-            component={MyTabs}
-            options={({}) => ({
-              headerTitle: props => <Header {...props} />,
-            })}
-          />
-
-          <Stack.Screen
-            name="MyDrawer"
-            component={MyDrawer}
-            options={({}) => ({
-              headerTitle: props => <Header {...props} />,
-            })}
-          />
-
-          <Stack.Screen
-            name="MyStatusBar"
-            component={MyStatusBar}
-            options={({}) => ({
-              headerTitle: props => <Header {...props} />,
-            })}
-          />
-
-          <Stack.Screen
-            name="DisableBackBtnAndFocused"
-            component={DisableBackBtnAndFocused}
             options={({}) => ({
               headerTitle: props => <Header {...props} />,
             })}
