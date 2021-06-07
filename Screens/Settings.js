@@ -32,8 +32,14 @@ function Settings({route, navigation}) {
       <Text>{'\n'}</Text>
 
       <Button title="Go to Home" onPress={() => navigation.navigate('Home')} />
-
       <Text>{'\n'}</Text>
+
+      <Button
+        title="Go to Redux Store"
+        onPress={() => navigation.navigate('MyReduxStore')}
+      />
+      <Text>{'\n'}</Text>
+
       <Button title="Go back" onPress={() => navigation.goBack()} />
     </View>
   );
@@ -43,7 +49,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    justifyContent: 'center',
+    justifyContent: 'space-evenly',
     backgroundColor: '#fff',
   },
   paragraph: {

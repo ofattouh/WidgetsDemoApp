@@ -18,6 +18,7 @@ import Home from './Screens/Home';
 import Profile from './Screens/Profile';
 import Settings from './Screens/Settings';
 import Widgets from './Screens/Widgets';
+import MyReduxStore from './DataStore/MyReduxStore';
 
 const Stack = createStackNavigator();
 
@@ -67,6 +68,8 @@ function App() {
             options={({route}) => ({title: route.params.name})}
             initialParams={{itemId2: 42}}
           />
+
+          <Stack.Screen name="MyReduxStore" component={MyReduxStore} />
 
           <Stack.Screen
             name="Widgets"
