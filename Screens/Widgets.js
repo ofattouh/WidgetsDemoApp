@@ -9,6 +9,7 @@ import MyDrawer from '../Components/Widgets/MyDrawer';
 import MyStatusBar from '../Components/Widgets/MyStatusBar';
 import DisableBackBtnAndFocused from '../Components/Widgets/DisableBackBtnAndFocused';
 import NoNavigationProp from '../Components/Widgets/NoNavigationProp';
+import MyTheme from '../Components/Widgets/MyTheme';
 import MyAnalytics from '../Components/MyAnalytics';
 
 function GoToButton({navigation, screenName}) {
@@ -58,6 +59,9 @@ function HomeScreen({navigation}) {
       <GoToButton navigation={navigation} screenName="NoNavigationProp" />
       <Text>{'\n'}</Text>
 
+      <Button title="My Theme" onPress={() => navigation.navigate('MyTheme')} />
+      <Text>{'\n'}</Text>
+
       <Button
         title="My Analytics"
         onPress={() => navigation.navigate('MyAnalytics')}
@@ -83,6 +87,7 @@ function Widgets() {
         name="DisableBackBtnAndFocused"
         component={DisableBackBtnAndFocused}
       />
+      <Stack.Screen name="MyTheme" component={MyTheme} />
       <Stack.Screen name="MyAnalytics" component={MyAnalytics} />
     </Stack.Navigator>
   );
