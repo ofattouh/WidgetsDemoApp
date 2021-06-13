@@ -59,7 +59,10 @@ function HomeScreen({navigation}) {
       <GoToButton navigation={navigation} screenName="NoNavigationProp" />
       <Text>{'\n'}</Text>
 
-      <Button title="My Theme" onPress={() => navigation.navigate('MyTheme')} />
+      <Button
+        title="My Drawer Theme"
+        onPress={() => navigation.navigate('MyTheme')}
+      />
       <Text>{'\n'}</Text>
 
       <Button

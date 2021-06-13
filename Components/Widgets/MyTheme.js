@@ -56,7 +56,7 @@ function useThemeButtonScreen() {
 function ProfileScreen({navigation}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.paragraph}>Profile Screen</Text>
+      <Text style={styles.paragraph}>Profile Screen - Drawer theme</Text>
     </View>
   );
 }
@@ -66,7 +66,7 @@ function SettingsScreen({route, navigation}) {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.paragraph}>Settings Screen</Text>
+      <Text style={styles.paragraph}>Settings Screen - Drawer theme</Text>
       <Text style={styles.paragraph}>userParams: {JSON.stringify(user)}</Text>
 
       <Button
@@ -80,7 +80,7 @@ function SettingsScreen({route, navigation}) {
 function HomeScreen({navigation}) {
   return (
     <View style={styles.container}>
-      <Text style={styles.paragraph}>Home Screen</Text>
+      <Text style={styles.paragraph}>Home Screen - Drawer theme</Text>
 
       <Button
         title="Go to Settings"
