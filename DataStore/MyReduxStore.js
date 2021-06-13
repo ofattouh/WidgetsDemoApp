@@ -36,7 +36,7 @@ function CounterScreen({count, dispatch, navigation}) {
       <Text>{'\n'}</Text>
 
       <Button
-        title="Go to static count screen"
+        title="Go to static counter screen"
         onPress={() =>
           navigation.navigate('StaticCounterScreen', {
             count,
@@ -58,6 +58,9 @@ function StaticCounterScreen({route}) {
 
 // Connect the screens to Redux store
 let CounterContainer = connect(state => ({count: state.count}))(CounterScreen);
+let StaticCounterContainer = connect(state => ({count: state.count}))(
+  StaticCounterScreen,
+);
 
 let RootStack = createStackNavigator();
 
@@ -68,12 +71,14 @@ function MyReduxStore() {
       <NavigationContainer
         independent={true} // warning, only 1 navigation container is allowed at root of app
       >
-        <RootStack.Navigator headerMode="none">
+        <RootStack.Navigator
+        // headerMode="none"
+        >
           <RootStack.Screen name="CounterScreen" component={CounterContainer} />
           <RootStack.Screen
             name="StaticCounterScreen"
-            component={StaticCounterScreen}
-            options={({route}) => ({title: route.params.count})}
+            component={StaticCounterContainer}
+            options={({route}) => ({title: 'Count: ' + route.params.count})}
           />
         </RootStack.Navigator>
       </NavigationContainer>
@@ -91,7 +96,7 @@ const styles = StyleSheet.create({
   },
   paragraph: {
     margin: 30,
-    fontSize: 25,
+    fontSize: 20,
     textAlign: 'center',
   },
 });
@@ -99,6 +104,10 @@ const styles = StyleSheet.create({
 export default MyReduxStore;
 
 // https://redux.js.org/
-// https://www.npmjs.com/package/redux
+// https://react-redux.js.org/
+// https://redux-toolkit.js.org/
 // https://github.com/reduxjs/react-redux
+// https://github.com/reduxjs/redux
+// https://www.npmjs.com/package/redux
 // https://reactnavigation.org/docs/redux-integration/
+// npm install --save-dev redux-devtools
