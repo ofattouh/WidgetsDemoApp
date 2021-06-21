@@ -178,3 +178,5 @@ const styles = StyleSheet.create({
 });
 
 export default MyTabs;
+
+// https://reactnavigation.org/docs/route-prop
