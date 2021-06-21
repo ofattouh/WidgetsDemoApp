@@ -28,6 +28,7 @@ function App() {
       <NavigationContainer>
         <Stack.Navigator
           initialRouteName="Home"
+          // apply to all screens in the navigator
           screenOptions={{
             headerStyle: {
               backgroundColor: '#f4511e',
@@ -47,7 +48,7 @@ function App() {
               title: 'Awesome app',
               headerRight: () => (
                 <Button
-                  onPress={() => alert('Clicked!')}
+                  onPress={() => alert('Right clicked!')}
                   title="Click me"
                   color="#2A52BE"
                 />
@@ -58,8 +59,16 @@ function App() {
           <Stack.Screen
             name="Profile"
             component={Profile}
+            // options={({ navigation, route }) => ({
             options={({}) => ({
               headerTitle: props => <Header {...props} />,
+              headerLeft: () => (
+                <Button
+                  onPress={() => alert('Left clicked!')}
+                  title="Click me"
+                  color="#2A52BE"
+                />
+              ),
             })}
           />
 
