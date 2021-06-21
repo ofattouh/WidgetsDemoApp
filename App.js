@@ -42,7 +42,9 @@ function App() {
             name="Home"
             component={Home}
             options={{
+              // pass additional props
               headerTitle: props => <Header {...props} />,
+              title: 'Awesome app',
               headerRight: () => (
                 <Button
                   onPress={() => alert('Clicked!')}
@@ -65,6 +67,9 @@ function App() {
             name="Settings"
             component={Settings}
             // options={{headerShown: false}}
+            // options={({route, navigation}) => ({
+            // title: route.params.name,
+            // })}
             options={({route}) => ({title: route.params.name})}
             initialParams={{itemId2: 42}}
           />
@@ -74,6 +79,8 @@ function App() {
           <Stack.Screen
             name="Widgets"
             component={Widgets}
+            // ProfileScreen module is lazily evaluated when needed. useful when using ram bundles to improve initial load
+            // getComponent={() => require('./ProfileScreen').default}
             options={({}) => ({
               headerTitle: props => <Header {...props} />,
             })}
