@@ -11,6 +11,7 @@ import DisableBackBtnAndFocused from '../Components/Widgets/DisableBackBtnAndFoc
 import NoNavigationProp from '../Components/Widgets/NoNavigationProp';
 import MyTheme from '../Components/Widgets/MyTheme';
 import MyAnalytics from '../Components/MyAnalytics';
+import MyAnimations from '../Components/Widgets/MyAnimations';
 
 function GoToButton({navigation, screenName}) {
   return (
@@ -70,6 +71,12 @@ function HomeScreen({navigation}) {
         onPress={() => navigation.navigate('MyAnalytics')}
       />
       <Text>{'\n'}</Text>
+
+      <Button
+        title="My Animations"
+        onPress={() => navigation.navigate('MyAnimations')}
+      />
+      <Text>{'\n'}</Text>
     </View>
   );
 }
@@ -92,6 +99,7 @@ function Widgets() {
       />
       <Stack.Screen name="MyTheme" component={MyTheme} />
       <Stack.Screen name="MyAnalytics" component={MyAnalytics} />
+      <Stack.Screen name="MyAnimations" component={MyAnimations} />
     </Stack.Navigator>
   );
 }

@@ -125,7 +125,7 @@ export default function MyTheme() {
 
   return (
     <NavigationContainer
-      independent={true} // warning, only 1 navigation container is allowed at root of app
+      independent={true} // dismiss warning, only 1 navigation container allowed at root of app
       // theme={MyThemeObj} // DefaultTheme will be used if no theme prop was provided
       theme={colorScheme === 'dark' ? DarkTheme : MyThemeObj}>
       <Drawer.Navigator initialRouteName="Root">
