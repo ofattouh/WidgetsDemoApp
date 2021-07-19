@@ -133,7 +133,7 @@ function MyStack() {
     <Stack.Navigator
       initialRouteName="Home"
       screenOptions={{
-        headerShown: false,
+        // headerShown: false,
         gestureEnabled: true,
         cardOverlayEnabled: true,
         ...TransitionPresets.ModalPresentationIOS,
