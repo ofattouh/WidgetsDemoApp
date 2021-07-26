@@ -1,5 +1,5 @@
 import * as React from 'react';
-import {StyleSheet, SafeAreaView, Button, Text} from 'react-native';
+import {StyleSheet, SafeAreaView, View, Button, Text} from 'react-native';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 import {createStackNavigator} from '@react-navigation/stack';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
@@ -12,7 +12,26 @@ function FocusAwareStatusBar(props) {
   return isFocused ? <StatusBar {...props} /> : null;
 }
 
-function FeedScreen() {
+function FeedScreen({navigation}) {
+  React.useEffect(() => {
+    const unsubscribe = navigation.addListener('tabPress', e => {
+      // Prevent default behavior
+      // e.preventDefault();
+
+      alert('Your have 3 followers (tabPress)!');
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
+  React.useEffect(() => {
+    const unsubscribe = navigation.addListener('tabLongPress', e => {
+      alert('Your have 3 followers (tabLongPress)!');
+    });
+
+    return unsubscribe;
+  }, [navigation]);
+
   return (
     <SafeAreaView style={styles.container}>
       <FocusAwareStatusBar barStyle="light-content" backgroundColor="#6a51ae" />
@@ -83,7 +102,24 @@ function SettingsScreen({navigation}) {
         title="Go to Details"
         onPress={() => navigation.navigate('Details')}
       />
+      <Text>{'\n'}</Text>
+
+      <Button
+        title="Go to profile"
+        onPress={() => navigation.jumpTo('Profile', {owner: 'Michaś'})}
+      />
     </SafeAreaView>
+  );
+}
+
+function ProfileScreen({route}) {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.paragraph}>Profile Screen</Text>
+      <Text style={styles.paragraph}>
+        {route?.params?.owner ? `${route.params.owner}'s Profile` : ''}
+      </Text>
+    </View>
   );
 }
 
@@ -117,6 +153,7 @@ function MyTabs({}) {
       initialRouteName="Home"
       // tabBar={() => null}
       screenOptions={({route}) => ({
+        // headerTitle: 'My Tabs',
         tabBarIcon: ({focused, color, size}) => {
           let iconName;
 
@@ -130,6 +167,8 @@ function MyTabs({}) {
             iconName = focused ? 'earth' : 'earth-outline';
           } else if (route.name === 'Settings') {
             iconName = focused ? 'settings' : 'settings-outline';
+          } else if (route.name === 'Profile') {
+            iconName = focused ? 'person' : 'person-outline';
           }
 
           // Any other component: https://ionic.io/ionicons
@@ -160,6 +199,12 @@ function MyTabs({}) {
         component={SettingsStackScreen}
         options={{tabBarLabel: 'My Settings'}}
       />
+
+      <Tab.Screen
+        name="Profile"
+        component={ProfileScreen}
+        options={{tabBarLabel: 'My Profile'}}
+      />
     </Tab.Navigator>
   );
 }
@@ -180,3 +225,4 @@ const styles = StyleSheet.create({
 export default MyTabs;
 
 // https://reactnavigation.org/docs/route-prop
+// https://reactnavigation.org/docs/bottom-tab-navigator
