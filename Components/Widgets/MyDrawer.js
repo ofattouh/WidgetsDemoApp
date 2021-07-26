@@ -1,5 +1,12 @@
 import * as React from 'react';
-import {StyleSheet, SafeAreaView, Text, Button} from 'react-native';
+import {
+  StyleSheet,
+  SafeAreaView,
+  Text,
+  Button,
+  useWindowDimensions,
+  Linking,
+} from 'react-native';
 import {
   createDrawerNavigator,
   DrawerContentScrollView,
@@ -61,6 +68,13 @@ function CustomDrawerContent(props) {
         label="Toggle The Drawer"
         onPress={() => props.navigation.toggleDrawer()}
       />
+      <DrawerItem
+        label="Help"
+        onPress={() => Linking.openURL('https://example.com')}
+        activeBackgroundColor="#efe"
+        inactiveBackgroundColor="#c6cb"
+        activeTintColor="#efe"
+      />
     </DrawerContentScrollView>
   );
 }
@@ -68,10 +82,31 @@ function CustomDrawerContent(props) {
 const Drawer = createDrawerNavigator();
 
 function MyDrawer() {
+  const dimensions = useWindowDimensions();
+  const isLargeScreen = dimensions.width >= 768;
+
   return (
     <Drawer.Navigator
-      drawerContent={props => <CustomDrawerContent {...props} />}>
-      <Drawer.Screen name="Feed" component={FeedScreen} />
+      initialRouteName="Feed"
+      drawerType={isLargeScreen ? 'permanent' : 'front'}
+      drawerStyle={
+        isLargeScreen
+          ? {width: '50%', backgroundColor: '#c6cb43'}
+          : {width: '70%', backgroundColor: '#c6cb43'}
+      }
+      drawerContent={props => <CustomDrawerContent {...props} />}
+      drawerContentOptions={{
+        activeTintColor: '#e91e63',
+        itemStyle: {marginVertical: 10},
+      }}
+      // hideStatusBar="true"
+      // overlayColor="transparent"
+    >
+      <Drawer.Screen
+        name="Feed"
+        component={FeedScreen}
+        options={{drawerLabel: 'My Feed'}}
+      />
       <Drawer.Screen name="Notifications" component={NotificationsScreen} />
     </Drawer.Navigator>
   );
