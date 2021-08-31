@@ -1,5 +1,5 @@
 /**
- * Muslim Prayer Companion App
+ * Widgets Demo App
  * https://github.com/facebook/react-native
  *
  * @format
